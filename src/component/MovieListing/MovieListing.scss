@@ -1,0 +1,27 @@
+@import "../../common/colors.scss";
+
+.MovieListing{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.movie-list{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h2{
+        color:$font-secondary;
+        margin-bottom: 3rem;
+        font-size: 2rem;
+        align-self:self-start;
+    }
+    .movie-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+}
