@@ -1,0 +1,18 @@
+@import "../../common/colors.scss";
+
+.Header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 6rem;
+    padding: 0rem 3rem ;
+    background-color:$secondary-color;
+}
+.logo{
+    color:$font-primary;
+    font-size: 1.5rem;
+}
+.profile,.profile img{
+    width: 3rem;
+    height: 3rem;
+}
