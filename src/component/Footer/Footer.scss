@@ -1,6 +1,7 @@
 @import "../../common/colors.scss";
 
 .Footer{
+    bottom:0%;
     height: 6rem;
     padding: 0rem 3rem ;
     background-color:$secondary-color;
@@ -9,4 +10,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    // margin-top: 6rem;
+    // position: absolute;
+    // bottom:0px;
+    // left:0px;
+    // right:0px;
 }

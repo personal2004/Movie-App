@@ -5,7 +5,13 @@
     height: 447px;
     background-color: $secondary-color;
     border-radius: 3px;
-    .MovieCard-top {
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover{
+        transform: scale(1.1);
+        transition: all 0.3;
+    }
+    .MovieCard-Image {
         height: 70%;
         img{
             width:100%;

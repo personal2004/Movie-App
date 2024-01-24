@@ -10,8 +10,8 @@ import "./App.scss";
 function App() {
   return (
     <div className="App">
-      <Router>
-      <Header />
+      <Router className='app__container'>
+        <Header />
         <Routes>
           <Route path="/" exact Component={Home} />
           <Route path="/movie/:imdbID" Component={MovieDetails} />
