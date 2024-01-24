@@ -13,9 +13,9 @@ function App() {
       <Router className='app__container'>
         <Header />
         <Routes>
-          <Route path="/" exact Component={Home} />
-          <Route path="/movie/:imdbID" Component={MovieDetails} />
-          <Route Component={PageNotFound} />
+          <Route path="/" exact element={<Home />} />
+          <Route path="/movie/:imdbID" element={<MovieDetails />} />
+          <Route element={<PageNotFound />} />
         </Routes>
         <Footer />
       </Router>

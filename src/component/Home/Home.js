@@ -5,11 +5,13 @@ import { useDispatch } from 'react-redux';
 import { fetchAsynShows, fetchAsyncMovies } from '../../features/movies/movieSlice';
 
 export const Home = () => {
-  const dispatch=useDispatch();
-
+  const dispatch = useDispatch();
+  const movieText = "Harry";
+  const ShowText = "percy jackson";
   useEffect(() => {
-    dispatch(fetchAsyncMovies());
-    dispatch(fetchAsynShows());
+    console.log('dispatch')
+    dispatch(fetchAsyncMovies(movieText));
+    dispatch(fetchAsynShows(ShowText));
   }, [dispatch]);
 
   return (
