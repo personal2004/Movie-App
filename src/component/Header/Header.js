@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { icon } from '../../Assets/Images/index';
 import { FaSearch } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
@@ -38,7 +38,7 @@ export const Header = () => {
           <button type='submit'><FaSearch /></button>
         </form>
       </div>)}
-
+      
       <div className='profile'>
         <img src={icon} alt='' />
       </div>

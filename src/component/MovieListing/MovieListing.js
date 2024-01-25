@@ -8,7 +8,7 @@ export const MovieListing = () => {
   const movie = useSelector(getAllMovies);
   const shows = useSelector(getAllShows);
   console.log(movie);
-
+  
   let renderMovies, renderShows = '';
 
   renderMovies = movie.Response === "True" ? (
