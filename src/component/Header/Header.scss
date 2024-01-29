@@ -20,6 +20,27 @@
 .Search-bar input,.Search-bar button{
         outline:none;
         padding:1rem 2rem;
-        font-size: 1rem;
-        
+        font-size: 1rem;       
 } 
+.favourite{
+    display: flex;
+    justify-content:space-between;
+    gap:2rem;
+    cursor: pointer;
+
+    
+}
+.favourite h4{
+    color:$font-primary;
+    font-size: 1.8rem;
+    align-self: center;
+    font-family:'Roboto', sans-serif;
+
+}
+.favourite-icon{
+    color: red;
+    height:3.5rem;
+    width:3rem;
+
+}
+

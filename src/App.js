@@ -6,6 +6,7 @@ import { MovieDetails } from "./component/MovieDetails/MovieDetails";
 import { PageNotFound } from "./component/PageNotFound/PageNotFound";
 import { Footer } from "./component/Footer/Footer";
 import "./App.scss";
+import FavouriteListing from "./component/FavoriteListing/FavouriteListing";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" exact element={<Home />} />
           <Route path="/movie/:imdbID" element={<MovieDetails />} />
           <Route element={<PageNotFound />} />
+          <Route path="/favourite" element={<FavouriteListing/>}/>
         </Routes>
         <Footer />
       </Router>

@@ -7,7 +7,6 @@ import "./MovieListing.scss"
 export const MovieListing = () => {
   const movie = useSelector(getAllMovies);
   const shows = useSelector(getAllShows);
-  console.log(movie);
   
   let renderMovies, renderShows = '';
 
@@ -22,7 +21,6 @@ export const MovieListing = () => {
   );
 
   renderShows = shows.Response === "True" ? (
-    console.log(shows),
     shows.Search.map((shows, index) => {
       return (<MovieCard key={index} data={shows} />)
     })

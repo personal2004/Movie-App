@@ -6,7 +6,11 @@ import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import "./Header.scss";
 import { fetchAsynShows, fetchAsyncMovies } from '../../features/movies/movieSlice';
+import { FaHeart } from 'react-icons/fa';
+
+
 export const Header = () => {
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location =useLocation();
@@ -38,7 +42,10 @@ export const Header = () => {
           <button type='submit'><FaSearch /></button>
         </form>
       </div>)}
-      
+      <div className='favourite' onClick={()=>navigate('/favourite')}>
+        <FaHeart className='favourite-icon'/>
+        <h4>Favourite</h4>
+      </div>
       <div className='profile'>
         <img src={icon} alt='' />
       </div>

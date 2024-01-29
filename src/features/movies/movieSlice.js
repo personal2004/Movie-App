@@ -14,26 +14,45 @@ export const fetchAsynShows = createAsyncThunk("shows/fetchAyncShows",
         const response = await movieApi.get(`?&apikey=${APIKEY}&s=${term}&type=series`);
         return response.data;
     });
-    
-export const fetchMovieorShwDetails=createAsyncThunk(" selectedmovieorshowdwtail/fetchMovieorShowDetails",
-   async (id) => {
-    const response=await movieApi.get(`?&apikey=${APIKEY}&i=${id}&Plot=full`);
-    return response.data;
-   });
+
+export const fetchMovieorShwDetails = createAsyncThunk(" selectedmovieorshowdwtail/fetchMovieorShowDetails",
+    async (id) => {
+        const response = await movieApi.get(`?&apikey=${APIKEY}&i=${id}&Plot=full`);
+        return response.data;
+    });
 
 const initialState = {
     movies: {},
     shows: {},
-    selectedmovieorshowdwtail:{},
+    selectedmovieorshowdwtail: {},
+    favMovies: [],
 };
 
 const movieSlice = createSlice({
     name: "movie",
     initialState,
     reducers: {
-        // addMovies: (state, { payload }) => {
-        //     state.movies = payload;
-        // },
+
+        addToFavourites: (state, { payload }) => {
+            // console.log('i',initialState.favMovies);
+            return {
+                ...state,
+                favMovies: [
+                    ...state.favMovies,
+                    payload
+                ]
+            }
+        },
+
+        removefromfavourite: (state, { payload }) => {
+        console.log('filter ',state.favMovies.filter(item => item.id !== payload));
+            return {
+                ...state,
+                favMovies: state.favMovies.filter(item => item.imdbID !== payload)
+            }
+
+        }
+
     },
 
     extraReducers: (builder) => {
@@ -52,26 +71,28 @@ const movieSlice = createSlice({
             .addCase(fetchAsyncMovies.rejected, () => {
                 console.log("rejected");
             })
-            .addCase(fetchAsynShows.fulfilled,(state, { payload }) => {
+            .addCase(fetchAsynShows.fulfilled, (state, { payload }) => {
                 console.log("fetchd sucessfully");
-                return{
+                return {
                     ...state,
-                    shows:payload
-            }})
-
-            .addCase(fetchMovieorShwDetails.fulfilled,(state,{payload})=>{
-                return{
-                    ...state,
-                    selectedmovieorshowdwtail:payload
+                    shows: payload
                 }
             })
-            
+
+            .addCase(fetchMovieorShwDetails.fulfilled, (state, { payload }) => {
+                return {
+                    ...state,
+                    selectedmovieorshowdwtail: payload
+                }
+            })
+
     }
 
 })
 
-export const { addMovies } = movieSlice.actions;
+export const { addToFavourites, removefromfavourite } = movieSlice.actions;
 export const getAllMovies = (state) => state.movie.movies;
 export const getAllShows = (state) => state.movie.shows;
-export const getSelectedMoviesorShows=(state)=>state.movie.selectedmovieorshowdwtail;
+export const getSelectedMoviesorShows = (state) => state.movie.selectedmovieorshowdwtail;
+export const getfavorite = (state) => state.movie.favMovies;
 export default movieSlice.reducer;
